@@ -9,18 +9,11 @@
 *{margin:0;padding:0}
 html,body{width:100%;height:100%;overflow:hidden;background:#000}
 iframe{width:100%;height:100%;border:none;position:fixed;top:0;left:0;right:0;bottom:0}
+.touch-zone{position:fixed;top:0;left:0;width:100%;height:50px;z-index:9999;background:transparent}
 </style>
 </head>
 <body>
-<iframe id="eve" src="eve.html" allowfullscreen></iframe>
-<script>
-document.getElementById('eve').addEventListener('load',function(){
-try{
-var s=this.contentDocument.createElement('style');
-s.textContent='#phone-screen .chat-header,#phone-screen .top-bar,.chat-page-header{margin-top:47px!important}#phone-screen .home-page .top-area{padding-top:47px!important}';
-this.contentDocument.head.appendChild(s);
-}catch(e){}
-});
-</script>
+<div class="touch-zone" ontouchstart="this.style.display='none';setTimeout(()=>{this.style.display=''},300)"></div>
+<iframe src="eve.html" allowfullscreen></iframe>
 </body>
 </html>
